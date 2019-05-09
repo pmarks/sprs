@@ -25,6 +25,9 @@ alga = { version = "0.5", optional = true }
 num-complex = "0.1.36"
 serde = "1.0"
 serde_derive = "1.0"
+#intel-mkl-src = { git = "https://github.com/pmarks/rust-intel-mkl.git" }
+intel-mkl-src = { path = "../rust-intel-mkl" }
+
 
 [dev-dependencies]
 bencher = "0.1"

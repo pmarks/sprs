@@ -58,7 +58,9 @@ assert_eq!(a, b.to_csc());
 
 */
 
-#![deny(warnings)]
+//#![deny(warnings)]
+
+extern crate intel_mkl_src;
 
 #[cfg(feature = "alga")]
 extern crate alga;
