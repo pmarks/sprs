@@ -11,13 +11,6 @@ pub fn mat1() -> CsMat<f64> {
 }
 
 
-pub fn mat1_i32() -> CsMatI<f64, i32> {
-    let indptr = vec![0, 2, 4, 5, 6, 7];
-    let indices = vec![2, 3, 3, 4, 2, 1, 3];
-    let data = vec![3., 4., 2., 5., 5., 8., 7.];
-    CsMatI::new((5, 5), indptr, indices, data)
-}
-
 pub fn mat1_csc() -> CsMat<f64> {
     let indptr = vec![0, 0, 1, 3, 6, 7];
     let indices = vec![3, 0, 2, 0, 1, 4, 1];
@@ -57,19 +50,6 @@ pub fn mat5() -> CsMat<f64> {
         1., 1.4, 6.4, 2.8, 3.4, 5.5, 3.5,
     ];
     CsMat::new((5, 15), indptr, indices, data)
-}
-
-pub fn mat5_i32() -> CsMatI<f64, i32> {
-    let indptr = vec![0, 5, 11, 14, 20, 22];
-    let indices = vec![
-        1, 2, 6, 7, 13, 3, 4, 6, 8, 13, 14, 7, 11, 13, 3, 8, 9, 10, 11, 14, 4,
-        12,
-    ];
-    let data = vec![
-        4.8, 2., 3.7, 5.9, 6., 1.6, 0.3, 9.2, 9.9, 4.8, 6.1, 4.4, 6., 0.1, 7.2,
-        1., 1.4, 6.4, 2.8, 3.4, 5.5, 3.5,
-    ];
-    CsMatI::new((5, 15), indptr, indices, data)
 }
 
 

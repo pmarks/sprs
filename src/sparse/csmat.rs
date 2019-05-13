@@ -1758,8 +1758,8 @@ where
 impl<'a, 'b, N, I, IpS, IS, DS, DS2> Mul<&'b ArrayBase<DS2, Ix2>>
     for &'a CsMatBase<N, I, IpS, IS, DS>
 where
-    N: 'a + Copy + Num + Default,
-    I: 'a + SpIndex,
+    N: 'a + Copy + Num + Default + 'static,
+    I: 'a + SpIndex + 'static,
     IpS: 'a + Deref<Target = [I]>,
     IS: 'a + Deref<Target = [I]>,
     DS: 'a + Deref<Target = [N]>,
@@ -1818,8 +1818,8 @@ where
 impl<'a, 'b, N, I, IpS, IS, DS, DS2> Dot<ArrayBase<DS2, Ix2>>
     for CsMatBase<N, I, IpS, IS, DS>
 where
-    N: 'a + Copy + Num + Default,
-    I: 'a + SpIndex,
+    N: 'a + Copy + Num + Default + 'static,
+    I: 'a + SpIndex + 'static,
     IpS: 'a + Deref<Target = [I]>,
     IS: 'a + Deref<Target = [I]>,
     DS: 'a + Deref<Target = [N]>,

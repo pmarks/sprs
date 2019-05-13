@@ -254,14 +254,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scsrmv"]
     pub fn mkl_scsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -271,13 +271,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scsrsv"]
     pub fn mkl_scsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -286,10 +286,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scsrgemv"]
     pub fn mkl_scsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -298,10 +298,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_scsrgemv"]
     pub fn mkl_cspblas_scsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -310,10 +310,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scsrsymv"]
     pub fn mkl_scsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -322,10 +322,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_scsrsymv"]
     pub fn mkl_cspblas_scsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -336,10 +336,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -350,10 +350,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -362,14 +362,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scscmv"]
     pub fn mkl_scscmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -379,13 +379,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scscsv"]
     pub fn mkl_scscsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -394,14 +394,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scoomv"]
     pub fn mkl_scoomv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -411,13 +411,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scoosv"]
     pub fn mkl_scoosv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -426,11 +426,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scoogemv"]
     pub fn mkl_scoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -439,11 +439,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_scoogemv"]
     pub fn mkl_cspblas_scoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -452,11 +452,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scoosymv"]
     pub fn mkl_scoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -465,11 +465,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_scoosymv"]
     pub fn mkl_cspblas_scoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -480,11 +480,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -495,11 +495,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -508,14 +508,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sdiamv"]
     pub fn mkl_sdiamv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -525,13 +525,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sdiasv"]
     pub fn mkl_sdiasv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -540,11 +540,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sdiagemv"]
     pub fn mkl_sdiagemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -553,11 +553,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sdiasymv"]
     pub fn mkl_sdiasymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -568,11 +568,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -581,12 +581,12 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sskymv"]
     pub fn mkl_sskymv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -596,11 +596,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sskysv"]
     pub fn mkl_sskysv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -609,15 +609,15 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sbsrmv"]
     pub fn mkl_sbsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -627,14 +627,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sbsrsv"]
     pub fn mkl_sbsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -643,11 +643,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sbsrgemv"]
     pub fn mkl_sbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -656,11 +656,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_sbsrgemv"]
     pub fn mkl_cspblas_sbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -669,11 +669,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sbsrsymv"]
     pub fn mkl_sbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -682,11 +682,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_sbsrsymv"]
     pub fn mkl_cspblas_sbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -697,11 +697,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -712,11 +712,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -725,240 +725,240 @@ extern "C" {
     #[link_name = "\u{1}_mkl_scsrmm"]
     pub fn mkl_scsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrsm"]
     pub fn mkl_scsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scscmm"]
     pub fn mkl_scscmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scscsm"]
     pub fn mkl_scscsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scoomm"]
     pub fn mkl_scoomm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scoosm"]
     pub fn mkl_scoosm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sdiamm"]
     pub fn mkl_sdiamm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sdiasm"]
     pub fn mkl_sdiasm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sskysm"]
     pub fn mkl_sskysm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sskymm"]
     pub fn mkl_sskymm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sbsrmm"]
     pub fn mkl_sbsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sbsrsm"]
     pub fn mkl_sbsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRMV"]
     pub fn MKL_SCSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -968,13 +968,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCSRSV"]
     pub fn MKL_SCSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -983,10 +983,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCSRGEMV"]
     pub fn MKL_SCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -995,10 +995,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_SCSRGEMV"]
     pub fn MKL_CSPBLAS_SCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1007,10 +1007,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCSRSYMV"]
     pub fn MKL_SCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1019,10 +1019,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_SCSRSYMV"]
     pub fn MKL_CSPBLAS_SCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1033,10 +1033,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1047,10 +1047,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1059,14 +1059,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCSCMV"]
     pub fn MKL_SCSCMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -1076,13 +1076,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCSCSV"]
     pub fn MKL_SCSCSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1091,14 +1091,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCOOMV"]
     pub fn MKL_SCOOMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -1108,13 +1108,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCOOSV"]
     pub fn MKL_SCOOSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1123,11 +1123,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCOOGEMV"]
     pub fn MKL_SCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1136,11 +1136,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_SCOOGEMV"]
     pub fn MKL_CSPBLAS_SCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1149,11 +1149,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCOOSYMV"]
     pub fn MKL_SCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1162,11 +1162,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_SCOOSYMV"]
     pub fn MKL_CSPBLAS_SCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1177,11 +1177,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1192,11 +1192,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1205,14 +1205,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SDIAMV"]
     pub fn MKL_SDIAMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -1222,13 +1222,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SDIASV"]
     pub fn MKL_SDIASV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1237,11 +1237,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SDIAGEMV"]
     pub fn MKL_SDIAGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1250,11 +1250,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SDIASYMV"]
     pub fn MKL_SDIASYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1265,11 +1265,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1278,12 +1278,12 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SSKYMV"]
     pub fn MKL_SSKYMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -1293,11 +1293,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SSKYSV"]
     pub fn MKL_SSKYSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1306,15 +1306,15 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SBSRMV"]
     pub fn MKL_SBSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         beta: *const f32,
         y: *mut f32,
@@ -1324,14 +1324,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SBSRSV"]
     pub fn MKL_SBSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1340,11 +1340,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SBSRGEMV"]
     pub fn MKL_SBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1353,11 +1353,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_SBSRGEMV"]
     pub fn MKL_CSPBLAS_SBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1366,11 +1366,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SBSRSYMV"]
     pub fn MKL_SBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1379,11 +1379,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_SBSRSYMV"]
     pub fn MKL_CSPBLAS_SBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1394,11 +1394,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1409,11 +1409,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f32,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f32,
         y: *mut f32,
     );
@@ -1422,240 +1422,240 @@ extern "C" {
     #[link_name = "\u{1}_MKL_SCSRMM"]
     pub fn MKL_SCSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRSM"]
     pub fn MKL_SCSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSCMM"]
     pub fn MKL_SCSCMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSCSM"]
     pub fn MKL_SCSCSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCOOMM"]
     pub fn MKL_SCOOMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCOOSM"]
     pub fn MKL_SCOOSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SDIAMM"]
     pub fn MKL_SDIAMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SDIASM"]
     pub fn MKL_SDIASM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SSKYSM"]
     pub fn MKL_SSKYSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SSKYMM"]
     pub fn MKL_SSKYMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SBSRMM"]
     pub fn MKL_SBSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f32,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SBSRSM"]
     pub fn MKL_SBSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f32,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f32,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f32,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrmv"]
     pub fn mkl_dcsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -1665,13 +1665,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcsrsv"]
     pub fn mkl_dcsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1680,10 +1680,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcsrgemv"]
     pub fn mkl_dcsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1692,10 +1692,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_dcsrgemv"]
     pub fn mkl_cspblas_dcsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1704,10 +1704,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcsrsymv"]
     pub fn mkl_dcsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1716,10 +1716,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_dcsrsymv"]
     pub fn mkl_cspblas_dcsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1730,10 +1730,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1744,10 +1744,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1756,14 +1756,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcscmv"]
     pub fn mkl_dcscmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -1773,13 +1773,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcscsv"]
     pub fn mkl_dcscsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1788,14 +1788,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcoomv"]
     pub fn mkl_dcoomv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -1805,13 +1805,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcoosv"]
     pub fn mkl_dcoosv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1820,11 +1820,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcoogemv"]
     pub fn mkl_dcoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1833,11 +1833,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_dcoogemv"]
     pub fn mkl_cspblas_dcoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1846,11 +1846,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcoosymv"]
     pub fn mkl_dcoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1859,11 +1859,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_dcoosymv"]
     pub fn mkl_cspblas_dcoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1874,11 +1874,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1889,11 +1889,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1902,14 +1902,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ddiamv"]
     pub fn mkl_ddiamv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -1919,13 +1919,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ddiasv"]
     pub fn mkl_ddiasv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1934,11 +1934,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ddiagemv"]
     pub fn mkl_ddiagemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1947,11 +1947,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ddiasymv"]
     pub fn mkl_ddiasymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1962,11 +1962,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -1975,12 +1975,12 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dskymv"]
     pub fn mkl_dskymv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -1990,11 +1990,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dskysv"]
     pub fn mkl_dskysv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2003,15 +2003,15 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dbsrmv"]
     pub fn mkl_dbsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2021,14 +2021,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dbsrsv"]
     pub fn mkl_dbsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2037,11 +2037,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dbsrgemv"]
     pub fn mkl_dbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2050,11 +2050,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_dbsrgemv"]
     pub fn mkl_cspblas_dbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2063,11 +2063,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dbsrsymv"]
     pub fn mkl_dbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2076,11 +2076,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_dbsrsymv"]
     pub fn mkl_cspblas_dbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2091,11 +2091,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2106,11 +2106,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2119,240 +2119,240 @@ extern "C" {
     #[link_name = "\u{1}_mkl_dcsrmm"]
     pub fn mkl_dcsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrsm"]
     pub fn mkl_dcsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcscmm"]
     pub fn mkl_dcscmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcscsm"]
     pub fn mkl_dcscsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcoomm"]
     pub fn mkl_dcoomm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcoosm"]
     pub fn mkl_dcoosm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ddiamm"]
     pub fn mkl_ddiamm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ddiasm"]
     pub fn mkl_ddiasm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dskysm"]
     pub fn mkl_dskysm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dskymm"]
     pub fn mkl_dskymm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dbsrmm"]
     pub fn mkl_dbsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dbsrsm"]
     pub fn mkl_dbsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRMV"]
     pub fn MKL_DCSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2362,13 +2362,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCSRSV"]
     pub fn MKL_DCSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2377,10 +2377,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCSRGEMV"]
     pub fn MKL_DCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2389,10 +2389,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_DCSRGEMV"]
     pub fn MKL_CSPBLAS_DCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2401,10 +2401,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCSRSYMV"]
     pub fn MKL_DCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2413,10 +2413,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_DCSRSYMV"]
     pub fn MKL_CSPBLAS_DCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2427,10 +2427,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2441,10 +2441,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2453,14 +2453,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCSCMV"]
     pub fn MKL_DCSCMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2470,13 +2470,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCSCSV"]
     pub fn MKL_DCSCSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2485,14 +2485,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCOOMV"]
     pub fn MKL_DCOOMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2502,13 +2502,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCOOSV"]
     pub fn MKL_DCOOSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2517,11 +2517,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCOOGEMV"]
     pub fn MKL_DCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2530,11 +2530,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_DCOOGEMV"]
     pub fn MKL_CSPBLAS_DCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2543,11 +2543,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCOOSYMV"]
     pub fn MKL_DCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2556,11 +2556,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_DCOOSYMV"]
     pub fn MKL_CSPBLAS_DCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2571,11 +2571,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2586,11 +2586,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2599,14 +2599,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DDIAMV"]
     pub fn MKL_DDIAMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2616,13 +2616,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DDIASV"]
     pub fn MKL_DDIASV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2631,11 +2631,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DDIAGEMV"]
     pub fn MKL_DDIAGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2644,11 +2644,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DDIASYMV"]
     pub fn MKL_DDIASYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2659,11 +2659,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2672,12 +2672,12 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DSKYMV"]
     pub fn MKL_DSKYMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2687,11 +2687,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DSKYSV"]
     pub fn MKL_DSKYSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2700,15 +2700,15 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DBSRMV"]
     pub fn MKL_DBSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         beta: *const f64,
         y: *mut f64,
@@ -2718,14 +2718,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DBSRSV"]
     pub fn MKL_DBSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2734,11 +2734,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DBSRGEMV"]
     pub fn MKL_DBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2747,11 +2747,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_DBSRGEMV"]
     pub fn MKL_CSPBLAS_DBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2760,11 +2760,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DBSRSYMV"]
     pub fn MKL_DBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2773,11 +2773,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_DBSRSYMV"]
     pub fn MKL_CSPBLAS_DBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2788,11 +2788,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2803,11 +2803,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const f64,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const f64,
         y: *mut f64,
     );
@@ -2816,240 +2816,240 @@ extern "C" {
     #[link_name = "\u{1}_MKL_DCSRMM"]
     pub fn MKL_DCSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRSM"]
     pub fn MKL_DCSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSCMM"]
     pub fn MKL_DCSCMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSCSM"]
     pub fn MKL_DCSCSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCOOMM"]
     pub fn MKL_DCOOMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCOOSM"]
     pub fn MKL_DCOOSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DDIAMM"]
     pub fn MKL_DDIAMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DDIASM"]
     pub fn MKL_DDIASM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DSKYSM"]
     pub fn MKL_DSKYSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DSKYMM"]
     pub fn MKL_DSKYMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DBSRMM"]
     pub fn MKL_DBSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const f64,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DBSRSM"]
     pub fn MKL_DBSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const f64,
         matdescra: *const ::std::os::raw::c_char,
         val: *const f64,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const f64,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrmv"]
     pub fn mkl_ccsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3059,13 +3059,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccsrsv"]
     pub fn mkl_ccsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3074,10 +3074,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccsrgemv"]
     pub fn mkl_ccsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3086,10 +3086,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_ccsrgemv"]
     pub fn mkl_cspblas_ccsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3098,10 +3098,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccsrsymv"]
     pub fn mkl_ccsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3110,10 +3110,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_ccsrsymv"]
     pub fn mkl_cspblas_ccsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3124,10 +3124,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3138,10 +3138,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3150,14 +3150,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccscmv"]
     pub fn mkl_ccscmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3167,13 +3167,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccscsv"]
     pub fn mkl_ccscsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3182,14 +3182,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccoomv"]
     pub fn mkl_ccoomv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3199,13 +3199,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccoosv"]
     pub fn mkl_ccoosv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3214,11 +3214,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccoogemv"]
     pub fn mkl_ccoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3227,11 +3227,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_ccoogemv"]
     pub fn mkl_cspblas_ccoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3240,11 +3240,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccoosymv"]
     pub fn mkl_ccoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3253,11 +3253,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_ccoosymv"]
     pub fn mkl_cspblas_ccoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3268,11 +3268,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3283,11 +3283,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3296,14 +3296,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cdiamv"]
     pub fn mkl_cdiamv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3313,13 +3313,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cdiasv"]
     pub fn mkl_cdiasv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3328,11 +3328,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cdiagemv"]
     pub fn mkl_cdiagemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3341,11 +3341,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cdiasymv"]
     pub fn mkl_cdiasymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3356,11 +3356,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3369,12 +3369,12 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cskymv"]
     pub fn mkl_cskymv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3384,11 +3384,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cskysv"]
     pub fn mkl_cskysv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3397,15 +3397,15 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cbsrmv"]
     pub fn mkl_cbsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3415,14 +3415,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cbsrsv"]
     pub fn mkl_cbsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3431,11 +3431,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cbsrgemv"]
     pub fn mkl_cbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3444,11 +3444,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_cbsrgemv"]
     pub fn mkl_cspblas_cbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3457,11 +3457,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cbsrsymv"]
     pub fn mkl_cbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3470,11 +3470,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_cbsrsymv"]
     pub fn mkl_cspblas_cbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3485,11 +3485,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3500,11 +3500,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3513,240 +3513,240 @@ extern "C" {
     #[link_name = "\u{1}_mkl_ccsrmm"]
     pub fn mkl_ccsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrsm"]
     pub fn mkl_ccsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccscmm"]
     pub fn mkl_ccscmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccscsm"]
     pub fn mkl_ccscsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccoomm"]
     pub fn mkl_ccoomm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccoosm"]
     pub fn mkl_ccoosm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cdiamm"]
     pub fn mkl_cdiamm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cdiasm"]
     pub fn mkl_cdiasm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cskysm"]
     pub fn mkl_cskysm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cskymm"]
     pub fn mkl_cskymm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cbsrmm"]
     pub fn mkl_cbsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cbsrsm"]
     pub fn mkl_cbsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRMV"]
     pub fn MKL_CCSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3756,13 +3756,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCSRSV"]
     pub fn MKL_CCSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3771,10 +3771,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCSRGEMV"]
     pub fn MKL_CCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3783,10 +3783,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_CCSRGEMV"]
     pub fn MKL_CSPBLAS_CCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3795,10 +3795,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCSRSYMV"]
     pub fn MKL_CCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3807,10 +3807,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_CCSRSYMV"]
     pub fn MKL_CSPBLAS_CCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3821,10 +3821,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3835,10 +3835,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3847,14 +3847,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCSCMV"]
     pub fn MKL_CCSCMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3864,13 +3864,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCSCSV"]
     pub fn MKL_CCSCSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3879,14 +3879,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCOOMV"]
     pub fn MKL_CCOOMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -3896,13 +3896,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCOOSV"]
     pub fn MKL_CCOOSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3911,11 +3911,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCOOGEMV"]
     pub fn MKL_CCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3924,11 +3924,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_CCOOGEMV"]
     pub fn MKL_CSPBLAS_CCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3937,11 +3937,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCOOSYMV"]
     pub fn MKL_CCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3950,11 +3950,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_CCOOSYMV"]
     pub fn MKL_CSPBLAS_CCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3965,11 +3965,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3980,11 +3980,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -3993,14 +3993,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CDIAMV"]
     pub fn MKL_CDIAMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -4010,13 +4010,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CDIASV"]
     pub fn MKL_CDIASV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4025,11 +4025,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CDIAGEMV"]
     pub fn MKL_CDIAGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4038,11 +4038,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CDIASYMV"]
     pub fn MKL_CDIASYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4053,11 +4053,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4066,12 +4066,12 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSKYMV"]
     pub fn MKL_CSKYMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -4081,11 +4081,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSKYSV"]
     pub fn MKL_CSKYSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4094,15 +4094,15 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CBSRMV"]
     pub fn MKL_CBSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         beta: *const MKL_Complex8,
         y: *mut MKL_Complex8,
@@ -4112,14 +4112,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CBSRSV"]
     pub fn MKL_CBSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4128,11 +4128,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CBSRGEMV"]
     pub fn MKL_CBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4141,11 +4141,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_CBSRGEMV"]
     pub fn MKL_CSPBLAS_CBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4154,11 +4154,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CBSRSYMV"]
     pub fn MKL_CBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4167,11 +4167,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_CBSRSYMV"]
     pub fn MKL_CSPBLAS_CBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4182,11 +4182,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4197,11 +4197,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex8,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex8,
         y: *mut MKL_Complex8,
     );
@@ -4210,240 +4210,240 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CCSRMM"]
     pub fn MKL_CCSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRSM"]
     pub fn MKL_CCSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSCMM"]
     pub fn MKL_CCSCMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSCSM"]
     pub fn MKL_CCSCSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCOOMM"]
     pub fn MKL_CCOOMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCOOSM"]
     pub fn MKL_CCOOSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CDIAMM"]
     pub fn MKL_CDIAMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CDIASM"]
     pub fn MKL_CDIASM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CSKYSM"]
     pub fn MKL_CSKYSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CSKYMM"]
     pub fn MKL_CSKYMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CBSRMM"]
     pub fn MKL_CBSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CBSRSM"]
     pub fn MKL_CBSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex8,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex8,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex8,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrmv"]
     pub fn mkl_zcsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -4453,13 +4453,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcsrsv"]
     pub fn mkl_zcsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4468,10 +4468,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcsrgemv"]
     pub fn mkl_zcsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4480,10 +4480,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_zcsrgemv"]
     pub fn mkl_cspblas_zcsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4492,10 +4492,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcsrsymv"]
     pub fn mkl_zcsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4504,10 +4504,10 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_zcsrsymv"]
     pub fn mkl_cspblas_zcsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4518,10 +4518,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4532,10 +4532,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4544,14 +4544,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcscmv"]
     pub fn mkl_zcscmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -4561,13 +4561,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcscsv"]
     pub fn mkl_zcscsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4576,14 +4576,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcoomv"]
     pub fn mkl_zcoomv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -4593,13 +4593,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcoosv"]
     pub fn mkl_zcoosv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4608,11 +4608,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcoogemv"]
     pub fn mkl_zcoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4621,11 +4621,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_zcoogemv"]
     pub fn mkl_cspblas_zcoogemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4634,11 +4634,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcoosymv"]
     pub fn mkl_zcoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4647,11 +4647,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_zcoosymv"]
     pub fn mkl_cspblas_zcoosymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4662,11 +4662,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4677,11 +4677,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4690,14 +4690,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zdiamv"]
     pub fn mkl_zdiamv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -4707,13 +4707,13 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zdiasv"]
     pub fn mkl_zdiasv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4722,11 +4722,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zdiagemv"]
     pub fn mkl_zdiagemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4735,11 +4735,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zdiasymv"]
     pub fn mkl_zdiasymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4750,11 +4750,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4763,12 +4763,12 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zskymv"]
     pub fn mkl_zskymv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -4778,11 +4778,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zskysv"]
     pub fn mkl_zskysv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4791,15 +4791,15 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zbsrmv"]
     pub fn mkl_zbsrmv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -4809,14 +4809,14 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zbsrsv"]
     pub fn mkl_zbsrsv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4825,11 +4825,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zbsrgemv"]
     pub fn mkl_zbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4838,11 +4838,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_zbsrgemv"]
     pub fn mkl_cspblas_zbsrgemv(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4851,11 +4851,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zbsrsymv"]
     pub fn mkl_zbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4864,11 +4864,11 @@ extern "C" {
     #[link_name = "\u{1}_mkl_cspblas_zbsrsymv"]
     pub fn mkl_cspblas_zbsrsymv(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4879,11 +4879,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4894,11 +4894,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -4907,240 +4907,240 @@ extern "C" {
     #[link_name = "\u{1}_mkl_zcsrmm"]
     pub fn mkl_zcsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrsm"]
     pub fn mkl_zcsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcscmm"]
     pub fn mkl_zcscmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcscsm"]
     pub fn mkl_zcscsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcoomm"]
     pub fn mkl_zcoomm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcoosm"]
     pub fn mkl_zcoosm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zdiamm"]
     pub fn mkl_zdiamm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zdiasm"]
     pub fn mkl_zdiasm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zskysm"]
     pub fn mkl_zskysm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zskymm"]
     pub fn mkl_zskymm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zbsrmm"]
     pub fn mkl_zbsrmm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zbsrsm"]
     pub fn mkl_zbsrsm(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRMV"]
     pub fn MKL_ZCSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -5150,13 +5150,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRSV"]
     pub fn MKL_ZCSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5165,10 +5165,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRGEMV"]
     pub fn MKL_ZCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5177,10 +5177,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_ZCSRGEMV"]
     pub fn MKL_CSPBLAS_ZCSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5189,10 +5189,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRSYMV"]
     pub fn MKL_ZCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5201,10 +5201,10 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_ZCSRSYMV"]
     pub fn MKL_CSPBLAS_ZCSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5215,10 +5215,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5229,10 +5229,10 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5241,14 +5241,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCSCMV"]
     pub fn MKL_ZCSCMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -5258,13 +5258,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCSCSV"]
     pub fn MKL_ZCSCSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5273,14 +5273,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCOOMV"]
     pub fn MKL_ZCOOMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -5290,13 +5290,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCOOSV"]
     pub fn MKL_ZCOOSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5305,11 +5305,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCOOGEMV"]
     pub fn MKL_ZCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5318,11 +5318,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_ZCOOGEMV"]
     pub fn MKL_CSPBLAS_ZCOOGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5331,11 +5331,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCOOSYMV"]
     pub fn MKL_ZCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5344,11 +5344,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_ZCOOSYMV"]
     pub fn MKL_CSPBLAS_ZCOOSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5359,11 +5359,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5374,11 +5374,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5387,14 +5387,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZDIAMV"]
     pub fn MKL_ZDIAMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -5404,13 +5404,13 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZDIASV"]
     pub fn MKL_ZDIASV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5419,11 +5419,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZDIAGEMV"]
     pub fn MKL_ZDIAGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5432,11 +5432,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZDIASYMV"]
     pub fn MKL_ZDIASYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5447,11 +5447,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5460,12 +5460,12 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZSKYMV"]
     pub fn MKL_ZSKYMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -5475,11 +5475,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZSKYSV"]
     pub fn MKL_ZSKYSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5488,15 +5488,15 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZBSRMV"]
     pub fn MKL_ZBSRMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         beta: *const MKL_Complex16,
         y: *mut MKL_Complex16,
@@ -5506,14 +5506,14 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZBSRSV"]
     pub fn MKL_ZBSRSV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5522,11 +5522,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZBSRGEMV"]
     pub fn MKL_ZBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5535,11 +5535,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_ZBSRGEMV"]
     pub fn MKL_CSPBLAS_ZBSRGEMV(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5548,11 +5548,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZBSRSYMV"]
     pub fn MKL_ZBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5561,11 +5561,11 @@ extern "C" {
     #[link_name = "\u{1}_MKL_CSPBLAS_ZBSRSYMV"]
     pub fn MKL_CSPBLAS_ZBSRSYMV(
         uplo: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5576,11 +5576,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5591,11 +5591,11 @@ extern "C" {
         uplo: *const ::std::os::raw::c_char,
         transa: *const ::std::os::raw::c_char,
         diag: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         a: *const MKL_Complex16,
-        ia: *const ::std::os::raw::c_int,
-        ja: *const ::std::os::raw::c_int,
+        ia: *const ::std::os::raw::c_longlong,
+        ja: *const ::std::os::raw::c_longlong,
         x: *const MKL_Complex16,
         y: *mut MKL_Complex16,
     );
@@ -5604,1434 +5604,1434 @@ extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRMM"]
     pub fn MKL_ZCSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRSM"]
     pub fn MKL_ZCSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSCMM"]
     pub fn MKL_ZCSCMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSCSM"]
     pub fn MKL_ZCSCSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCOOMM"]
     pub fn MKL_ZCOOMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCOOSM"]
     pub fn MKL_ZCOOSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        rowind: *const ::std::os::raw::c_int,
-        colind: *const ::std::os::raw::c_int,
-        nnz: *const ::std::os::raw::c_int,
+        rowind: *const ::std::os::raw::c_longlong,
+        colind: *const ::std::os::raw::c_longlong,
+        nnz: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZDIAMM"]
     pub fn MKL_ZDIAMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZDIASM"]
     pub fn MKL_ZDIASM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        lval: *const ::std::os::raw::c_int,
-        idiag: *const ::std::os::raw::c_int,
-        ndiag: *const ::std::os::raw::c_int,
+        lval: *const ::std::os::raw::c_longlong,
+        idiag: *const ::std::os::raw::c_longlong,
+        ndiag: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZSKYSM"]
     pub fn MKL_ZSKYSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZSKYMM"]
     pub fn MKL_ZSKYMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        pntr: *const ::std::os::raw::c_int,
+        pntr: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZBSRMM"]
     pub fn MKL_ZBSRMM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZBSRSM"]
     pub fn MKL_ZBSRSM(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        lb: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        lb: *const ::std::os::raw::c_longlong,
         alpha: *const MKL_Complex16,
         matdescra: *const ::std::os::raw::c_char,
         val: *const MKL_Complex16,
-        indx: *const ::std::os::raw::c_int,
-        pntrb: *const ::std::os::raw::c_int,
-        pntre: *const ::std::os::raw::c_int,
+        indx: *const ::std::os::raw::c_longlong,
+        pntrb: *const ::std::os::raw::c_longlong,
+        pntre: *const ::std::os::raw::c_longlong,
         b: *const MKL_Complex16,
-        ldb: *const ::std::os::raw::c_int,
+        ldb: *const ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *const ::std::os::raw::c_int,
+        ldc: *const ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrbsr"]
     pub fn mkl_dcsrbsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut f64,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrcoo"]
     pub fn mkl_dcsrcoo(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut f64,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ddnscsr"]
     pub fn mkl_ddnscsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut f64,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrcsc"]
     pub fn mkl_dcsrcsc(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut f64,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrdia"]
     pub fn mkl_dcsrdia(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut f64,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut f64,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrsky"]
     pub fn mkl_dcsrsky(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut f64,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrbsr"]
     pub fn mkl_scsrbsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut f32,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrcoo"]
     pub fn mkl_scsrcoo(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut f32,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_sdnscsr"]
     pub fn mkl_sdnscsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut f32,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrcsc"]
     pub fn mkl_scsrcsc(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut f32,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrdia"]
     pub fn mkl_scsrdia(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut f32,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut f32,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrsky"]
     pub fn mkl_scsrsky(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut f32,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrbsr"]
     pub fn mkl_ccsrbsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut MKL_Complex8,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrcoo"]
     pub fn mkl_ccsrcoo(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut MKL_Complex8,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_cdnscsr"]
     pub fn mkl_cdnscsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut MKL_Complex8,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrcsc"]
     pub fn mkl_ccsrcsc(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut MKL_Complex8,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrdia"]
     pub fn mkl_ccsrdia(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut MKL_Complex8,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut MKL_Complex8,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrsky"]
     pub fn mkl_ccsrsky(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut MKL_Complex8,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrbsr"]
     pub fn mkl_zcsrbsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut MKL_Complex16,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrcoo"]
     pub fn mkl_zcsrcoo(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut MKL_Complex16,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zdnscsr"]
     pub fn mkl_zdnscsr(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut MKL_Complex16,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrcsc"]
     pub fn mkl_zcsrcsc(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut MKL_Complex16,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrdia"]
     pub fn mkl_zcsrdia(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut MKL_Complex16,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut MKL_Complex16,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrsky"]
     pub fn mkl_zcsrsky(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut MKL_Complex16,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRBSR"]
     pub fn MKL_DCSRBSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut f64,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRCOO"]
     pub fn MKL_DCSRCOO(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut f64,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DDNSCSR"]
     pub fn MKL_DDNSCSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut f64,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRCSC"]
     pub fn MKL_DCSRCSC(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut f64,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRDIA"]
     pub fn MKL_DCSRDIA(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut f64,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut f64,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRSKY"]
     pub fn MKL_DCSRSKY(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f64,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut f64,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRBSR"]
     pub fn MKL_SCSRBSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut f32,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRCOO"]
     pub fn MKL_SCSRCOO(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut f32,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SDNSCSR"]
     pub fn MKL_SDNSCSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut f32,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRCSC"]
     pub fn MKL_SCSRCSC(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut f32,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRDIA"]
     pub fn MKL_SCSRDIA(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut f32,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut f32,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRSKY"]
     pub fn MKL_SCSRSKY(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut f32,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut f32,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRBSR"]
     pub fn MKL_CCSRBSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut MKL_Complex8,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRCOO"]
     pub fn MKL_CCSRCOO(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut MKL_Complex8,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CDNSCSR"]
     pub fn MKL_CDNSCSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut MKL_Complex8,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRCSC"]
     pub fn MKL_CCSRCSC(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut MKL_Complex8,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRDIA"]
     pub fn MKL_CCSRDIA(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut MKL_Complex8,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut MKL_Complex8,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRSKY"]
     pub fn MKL_CCSRSKY(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex8,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut MKL_Complex8,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRBSR"]
     pub fn MKL_ZCSRBSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        mblk: *const ::std::os::raw::c_int,
-        ldAbsr: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        mblk: *const ::std::os::raw::c_longlong,
+        ldAbsr: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
         Absr: *mut MKL_Complex16,
-        AJB: *mut ::std::os::raw::c_int,
-        AIB: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJB: *mut ::std::os::raw::c_longlong,
+        AIB: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRCOO"]
     pub fn MKL_ZCSRCOO(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJR: *mut ::std::os::raw::c_int,
-        AIR: *mut ::std::os::raw::c_int,
-        nnz: *mut ::std::os::raw::c_int,
+        AJR: *mut ::std::os::raw::c_longlong,
+        AIR: *mut ::std::os::raw::c_longlong,
+        nnz: *mut ::std::os::raw::c_longlong,
         Acoo: *mut MKL_Complex16,
-        ir: *mut ::std::os::raw::c_int,
-        jc: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        ir: *mut ::std::os::raw::c_longlong,
+        jc: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZDNSCSR"]
     pub fn MKL_ZDNSCSR(
-        job: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Adns: *mut MKL_Complex16,
-        lda: *const ::std::os::raw::c_int,
+        lda: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ: *mut ::std::os::raw::c_int,
-        AI: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ: *mut ::std::os::raw::c_longlong,
+        AI: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRCSC"]
     pub fn MKL_ZCSRCSC(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Acsc: *mut MKL_Complex16,
-        AJ1: *mut ::std::os::raw::c_int,
-        AI1: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ1: *mut ::std::os::raw::c_longlong,
+        AI1: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRDIA"]
     pub fn MKL_ZCSRDIA(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Adia: *mut MKL_Complex16,
-        ndiag: *const ::std::os::raw::c_int,
-        distance: *mut ::std::os::raw::c_int,
-        idiag: *mut ::std::os::raw::c_int,
+        ndiag: *const ::std::os::raw::c_longlong,
+        distance: *mut ::std::os::raw::c_longlong,
+        idiag: *mut ::std::os::raw::c_longlong,
         Acsr_rem: *mut MKL_Complex16,
-        AJ0_rem: *mut ::std::os::raw::c_int,
-        AI0_rem: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        AJ0_rem: *mut ::std::os::raw::c_longlong,
+        AI0_rem: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRSKY"]
     pub fn MKL_ZCSRSKY(
-        job: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         Acsr: *mut MKL_Complex16,
-        AJ0: *mut ::std::os::raw::c_int,
-        AI0: *mut ::std::os::raw::c_int,
+        AJ0: *mut ::std::os::raw::c_longlong,
+        AI0: *mut ::std::os::raw::c_longlong,
         Asky: *mut MKL_Complex16,
-        pointers: *mut ::std::os::raw::c_int,
-        info: *mut ::std::os::raw::c_int,
+        pointers: *mut ::std::os::raw::c_longlong,
+        info: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrmultcsr"]
     pub fn mkl_dcsrmultcsr(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f64,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f64,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f64,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsrmultd"]
     pub fn mkl_dcsrmultd(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f64,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f64,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_dcsradd"]
     pub fn mkl_dcsradd(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut f64,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const f64,
         b: *mut f64,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f64,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrmultcsr"]
     pub fn mkl_scsrmultcsr(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f32,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f32,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f32,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsrmultd"]
     pub fn mkl_scsrmultd(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f32,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f32,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_scsradd"]
     pub fn mkl_scsradd(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut f32,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const f32,
         b: *mut f32,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f32,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrmultcsr"]
     pub fn mkl_ccsrmultcsr(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex8,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex8,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsrmultd"]
     pub fn mkl_ccsrmultd(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex8,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex8,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_ccsradd"]
     pub fn mkl_ccsradd(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex8,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         b: *mut MKL_Complex8,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrmultcsr"]
     pub fn mkl_zcsrmultcsr(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex16,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex16,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsrmultd"]
     pub fn mkl_zcsrmultd(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex16,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex16,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_mkl_zcsradd"]
     pub fn mkl_zcsradd(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex16,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         b: *mut MKL_Complex16,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRMULTCSR"]
     pub fn MKL_DCSRMULTCSR(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f64,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f64,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f64,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRMULTD"]
     pub fn MKL_DCSRMULTD(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f64,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f64,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f64,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_DCSRADD"]
     pub fn MKL_DCSRADD(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut f64,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const f64,
         b: *mut f64,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f64,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRMULTCSR"]
     pub fn MKL_SCSRMULTCSR(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f32,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f32,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f32,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRMULTD"]
     pub fn MKL_SCSRMULTD(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut f32,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut f32,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f32,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_SCSRADD"]
     pub fn MKL_SCSRADD(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut f32,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const f32,
         b: *mut f32,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut f32,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRMULTCSR"]
     pub fn MKL_CCSRMULTCSR(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex8,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex8,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRMULTD"]
     pub fn MKL_CCSRMULTD(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex8,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex8,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_CCSRADD"]
     pub fn MKL_CCSRADD(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex8,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const MKL_Complex8,
         b: *mut MKL_Complex8,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex8,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRMULTCSR"]
     pub fn MKL_ZCSRMULTCSR(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex16,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex16,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRMULTD"]
     pub fn MKL_ZCSRMULTD(
         transa: *const ::std::os::raw::c_char,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
-        k: *const ::std::os::raw::c_int,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
+        k: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex16,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         b: *mut MKL_Complex16,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        ldc: *mut ::std::os::raw::c_int,
+        ldc: *mut ::std::os::raw::c_longlong,
     );
 }
 extern "C" {
     #[link_name = "\u{1}_MKL_ZCSRADD"]
     pub fn MKL_ZCSRADD(
         transa: *const ::std::os::raw::c_char,
-        job: *const ::std::os::raw::c_int,
-        sort: *const ::std::os::raw::c_int,
-        m: *const ::std::os::raw::c_int,
-        n: *const ::std::os::raw::c_int,
+        job: *const ::std::os::raw::c_longlong,
+        sort: *const ::std::os::raw::c_longlong,
+        m: *const ::std::os::raw::c_longlong,
+        n: *const ::std::os::raw::c_longlong,
         a: *mut MKL_Complex16,
-        ja: *mut ::std::os::raw::c_int,
-        ia: *mut ::std::os::raw::c_int,
+        ja: *mut ::std::os::raw::c_longlong,
+        ia: *mut ::std::os::raw::c_longlong,
         beta: *const MKL_Complex16,
         b: *mut MKL_Complex16,
-        jb: *mut ::std::os::raw::c_int,
-        ib: *mut ::std::os::raw::c_int,
+        jb: *mut ::std::os::raw::c_longlong,
+        ib: *mut ::std::os::raw::c_longlong,
         c: *mut MKL_Complex16,
-        jc: *mut ::std::os::raw::c_int,
-        ic: *mut ::std::os::raw::c_int,
-        nnzmax: *const ::std::os::raw::c_int,
-        ierr: *mut ::std::os::raw::c_int,
+        jc: *mut ::std::os::raw::c_longlong,
+        ic: *mut ::std::os::raw::c_longlong,
+        nnzmax: *const ::std::os::raw::c_longlong,
+        ierr: *mut ::std::os::raw::c_longlong,
     );
 }
 pub const sparse_status_t_SPARSE_STATUS_SUCCESS: sparse_status_t = 0;
@@ -7159,11 +7159,11 @@ extern "C" {
     pub fn mkl_sparse_s_create_coo(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        nnz: ::std::os::raw::c_int,
-        row_indx: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        nnz: ::std::os::raw::c_longlong,
+        row_indx: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f32,
     ) -> sparse_status_t;
 }
@@ -7172,11 +7172,11 @@ extern "C" {
     pub fn mkl_sparse_d_create_coo(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        nnz: ::std::os::raw::c_int,
-        row_indx: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        nnz: ::std::os::raw::c_longlong,
+        row_indx: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f64,
     ) -> sparse_status_t;
 }
@@ -7185,11 +7185,11 @@ extern "C" {
     pub fn mkl_sparse_c_create_coo(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        nnz: ::std::os::raw::c_int,
-        row_indx: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        nnz: ::std::os::raw::c_longlong,
+        row_indx: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7198,11 +7198,11 @@ extern "C" {
     pub fn mkl_sparse_z_create_coo(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        nnz: ::std::os::raw::c_int,
-        row_indx: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        nnz: ::std::os::raw::c_longlong,
+        row_indx: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7211,11 +7211,11 @@ extern "C" {
     pub fn mkl_sparse_s_create_csr(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f32,
     ) -> sparse_status_t;
 }
@@ -7224,11 +7224,11 @@ extern "C" {
     pub fn mkl_sparse_d_create_csr(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f64,
     ) -> sparse_status_t;
 }
@@ -7237,11 +7237,11 @@ extern "C" {
     pub fn mkl_sparse_c_create_csr(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7250,11 +7250,11 @@ extern "C" {
     pub fn mkl_sparse_z_create_csr(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7263,11 +7263,11 @@ extern "C" {
     pub fn mkl_sparse_s_create_csc(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f32,
     ) -> sparse_status_t;
 }
@@ -7276,11 +7276,11 @@ extern "C" {
     pub fn mkl_sparse_d_create_csc(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f64,
     ) -> sparse_status_t;
 }
@@ -7289,11 +7289,11 @@ extern "C" {
     pub fn mkl_sparse_c_create_csc(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7302,11 +7302,11 @@ extern "C" {
     pub fn mkl_sparse_z_create_csc(
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7316,12 +7316,12 @@ extern "C" {
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
         block_layout: sparse_layout_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        block_size: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        block_size: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f32,
     ) -> sparse_status_t;
 }
@@ -7331,12 +7331,12 @@ extern "C" {
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
         block_layout: sparse_layout_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        block_size: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        block_size: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut f64,
     ) -> sparse_status_t;
 }
@@ -7346,12 +7346,12 @@ extern "C" {
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
         block_layout: sparse_layout_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        block_size: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        block_size: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7361,12 +7361,12 @@ extern "C" {
         A: *mut sparse_matrix_t,
         indexing: sparse_index_base_t,
         block_layout: sparse_layout_t,
-        rows: ::std::os::raw::c_int,
-        cols: ::std::os::raw::c_int,
-        block_size: ::std::os::raw::c_int,
-        rows_start: *mut ::std::os::raw::c_int,
-        rows_end: *mut ::std::os::raw::c_int,
-        col_indx: *mut ::std::os::raw::c_int,
+        rows: ::std::os::raw::c_longlong,
+        cols: ::std::os::raw::c_longlong,
+        block_size: ::std::os::raw::c_longlong,
+        rows_start: *mut ::std::os::raw::c_longlong,
+        rows_end: *mut ::std::os::raw::c_longlong,
+        col_indx: *mut ::std::os::raw::c_longlong,
         values: *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7386,7 +7386,7 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sparse_get_error_info"]
     pub fn mkl_sparse_get_error_info(
         A: sparse_matrix_t,
-        info: *mut ::std::os::raw::c_int,
+        info: *mut ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7401,7 +7401,7 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sparse_convert_bsr"]
     pub fn mkl_sparse_convert_bsr(
         source: sparse_matrix_t,
-        block_size: ::std::os::raw::c_int,
+        block_size: ::std::os::raw::c_longlong,
         block_layout: sparse_layout_t,
         operation: sparse_operation_t,
         dest: *mut sparse_matrix_t,
@@ -7413,12 +7413,12 @@ extern "C" {
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
         block_layout: *mut sparse_layout_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        block_size: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        block_size: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut f32,
     ) -> sparse_status_t;
 }
@@ -7428,12 +7428,12 @@ extern "C" {
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
         block_layout: *mut sparse_layout_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        block_size: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        block_size: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut f64,
     ) -> sparse_status_t;
 }
@@ -7443,12 +7443,12 @@ extern "C" {
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
         block_layout: *mut sparse_layout_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        block_size: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        block_size: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7458,12 +7458,12 @@ extern "C" {
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
         block_layout: *mut sparse_layout_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        block_size: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        block_size: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7472,11 +7472,11 @@ extern "C" {
     pub fn mkl_sparse_s_export_csr(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut f32,
     ) -> sparse_status_t;
 }
@@ -7485,11 +7485,11 @@ extern "C" {
     pub fn mkl_sparse_d_export_csr(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut f64,
     ) -> sparse_status_t;
 }
@@ -7498,11 +7498,11 @@ extern "C" {
     pub fn mkl_sparse_c_export_csr(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7511,11 +7511,11 @@ extern "C" {
     pub fn mkl_sparse_z_export_csr(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7524,11 +7524,11 @@ extern "C" {
     pub fn mkl_sparse_s_export_csc(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut f32,
     ) -> sparse_status_t;
 }
@@ -7537,11 +7537,11 @@ extern "C" {
     pub fn mkl_sparse_d_export_csc(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut f64,
     ) -> sparse_status_t;
 }
@@ -7550,11 +7550,11 @@ extern "C" {
     pub fn mkl_sparse_c_export_csc(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7563,11 +7563,11 @@ extern "C" {
     pub fn mkl_sparse_z_export_csc(
         source: sparse_matrix_t,
         indexing: *mut sparse_index_base_t,
-        rows: *mut ::std::os::raw::c_int,
-        cols: *mut ::std::os::raw::c_int,
-        rows_start: *mut *mut ::std::os::raw::c_int,
-        rows_end: *mut *mut ::std::os::raw::c_int,
-        col_indx: *mut *mut ::std::os::raw::c_int,
+        rows: *mut ::std::os::raw::c_longlong,
+        cols: *mut ::std::os::raw::c_longlong,
+        rows_start: *mut *mut ::std::os::raw::c_longlong,
+        rows_end: *mut *mut ::std::os::raw::c_longlong,
+        col_indx: *mut *mut ::std::os::raw::c_longlong,
         values: *mut *mut MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7575,8 +7575,8 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sparse_s_set_value"]
     pub fn mkl_sparse_s_set_value(
         A: sparse_matrix_t,
-        row: ::std::os::raw::c_int,
-        col: ::std::os::raw::c_int,
+        row: ::std::os::raw::c_longlong,
+        col: ::std::os::raw::c_longlong,
         value: f32,
     ) -> sparse_status_t;
 }
@@ -7584,8 +7584,8 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sparse_d_set_value"]
     pub fn mkl_sparse_d_set_value(
         A: sparse_matrix_t,
-        row: ::std::os::raw::c_int,
-        col: ::std::os::raw::c_int,
+        row: ::std::os::raw::c_longlong,
+        col: ::std::os::raw::c_longlong,
         value: f64,
     ) -> sparse_status_t;
 }
@@ -7593,8 +7593,8 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sparse_c_set_value"]
     pub fn mkl_sparse_c_set_value(
         A: sparse_matrix_t,
-        row: ::std::os::raw::c_int,
-        col: ::std::os::raw::c_int,
+        row: ::std::os::raw::c_longlong,
+        col: ::std::os::raw::c_longlong,
         value: MKL_Complex8,
     ) -> sparse_status_t;
 }
@@ -7602,8 +7602,8 @@ extern "C" {
     #[link_name = "\u{1}_mkl_sparse_z_set_value"]
     pub fn mkl_sparse_z_set_value(
         A: sparse_matrix_t,
-        row: ::std::os::raw::c_int,
-        col: ::std::os::raw::c_int,
+        row: ::std::os::raw::c_longlong,
+        col: ::std::os::raw::c_longlong,
         value: MKL_Complex16,
     ) -> sparse_status_t;
 }
@@ -7619,7 +7619,7 @@ extern "C" {
         A: sparse_matrix_t,
         operation: sparse_operation_t,
         descr: matrix_descr,
-        expected_calls: ::std::os::raw::c_int,
+        expected_calls: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7629,8 +7629,8 @@ extern "C" {
         operation: sparse_operation_t,
         descr: matrix_descr,
         layout: sparse_layout_t,
-        dense_matrix_size: ::std::os::raw::c_int,
-        expected_calls: ::std::os::raw::c_int,
+        dense_matrix_size: ::std::os::raw::c_longlong,
+        expected_calls: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7639,7 +7639,7 @@ extern "C" {
         A: sparse_matrix_t,
         operation: sparse_operation_t,
         descr: matrix_descr,
-        expected_calls: ::std::os::raw::c_int,
+        expected_calls: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7649,8 +7649,8 @@ extern "C" {
         operation: sparse_operation_t,
         descr: matrix_descr,
         layout: sparse_layout_t,
-        dense_matrix_size: ::std::os::raw::c_int,
-        expected_calls: ::std::os::raw::c_int,
+        dense_matrix_size: ::std::os::raw::c_longlong,
+        expected_calls: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7765,11 +7765,11 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const f32,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         beta: f32,
         y: *mut f32,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7781,11 +7781,11 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const f64,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         beta: f64,
         y: *mut f64,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7797,11 +7797,11 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const MKL_Complex8,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         beta: MKL_Complex8,
         y: *mut MKL_Complex8,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7813,11 +7813,11 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const MKL_Complex16,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         beta: MKL_Complex16,
         y: *mut MKL_Complex16,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7829,10 +7829,10 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const f32,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         y: *mut f32,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7844,10 +7844,10 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const f64,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         y: *mut f64,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7859,10 +7859,10 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const MKL_Complex8,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         y: *mut MKL_Complex8,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7874,10 +7874,10 @@ extern "C" {
         descr: matrix_descr,
         layout: sparse_layout_t,
         x: *const MKL_Complex16,
-        columns: ::std::os::raw::c_int,
-        ldx: ::std::os::raw::c_int,
+        columns: ::std::os::raw::c_longlong,
+        ldx: ::std::os::raw::c_longlong,
         y: *mut MKL_Complex16,
-        ldy: ::std::os::raw::c_int,
+        ldy: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7968,12 +7968,12 @@ extern "C" {
         A: sparse_matrix_t,
         B: *mut f32,
         layoutB: sparse_layout_t,
-        ldb: ::std::os::raw::c_int,
+        ldb: ::std::os::raw::c_longlong,
         alpha: f32,
         beta: f32,
         C: *mut f32,
         layoutC: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7983,12 +7983,12 @@ extern "C" {
         A: sparse_matrix_t,
         B: *mut f64,
         layoutB: sparse_layout_t,
-        ldb: ::std::os::raw::c_int,
+        ldb: ::std::os::raw::c_longlong,
         alpha: f64,
         beta: f64,
         C: *mut f64,
         layoutC: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -7998,12 +7998,12 @@ extern "C" {
         A: sparse_matrix_t,
         B: *mut MKL_Complex8,
         layoutB: sparse_layout_t,
-        ldb: ::std::os::raw::c_int,
+        ldb: ::std::os::raw::c_longlong,
         alpha: MKL_Complex8,
         beta: MKL_Complex8,
         C: *mut MKL_Complex8,
         layoutC: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8013,12 +8013,12 @@ extern "C" {
         A: sparse_matrix_t,
         B: *mut MKL_Complex16,
         layoutB: sparse_layout_t,
-        ldb: ::std::os::raw::c_int,
+        ldb: ::std::os::raw::c_longlong,
         alpha: MKL_Complex16,
         beta: MKL_Complex16,
         C: *mut MKL_Complex16,
         layoutC: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8031,7 +8031,7 @@ extern "C" {
         A: sparse_matrix_t,
         operation: sparse_operation_t,
         descr: matrix_descr,
-        expected_calls: ::std::os::raw::c_int,
+        expected_calls: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8063,7 +8063,7 @@ extern "C" {
         A: sparse_matrix_t,
         operation: sparse_operation_t,
         descr: matrix_descr,
-        expectedCalls: ::std::os::raw::c_int,
+        expectedCalls: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8195,7 +8195,7 @@ extern "C" {
         B: sparse_matrix_t,
         layout: sparse_layout_t,
         C: *mut f32,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8206,7 +8206,7 @@ extern "C" {
         B: sparse_matrix_t,
         layout: sparse_layout_t,
         C: *mut f64,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8217,7 +8217,7 @@ extern "C" {
         B: sparse_matrix_t,
         layout: sparse_layout_t,
         C: *mut MKL_Complex8,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8228,7 +8228,7 @@ extern "C" {
         B: sparse_matrix_t,
         layout: sparse_layout_t,
         C: *mut MKL_Complex16,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8244,7 +8244,7 @@ extern "C" {
         beta: f64,
         C: *mut f64,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8260,7 +8260,7 @@ extern "C" {
         beta: f32,
         C: *mut f32,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8276,7 +8276,7 @@ extern "C" {
         beta: MKL_Complex16,
         C: *mut MKL_Complex16,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8292,7 +8292,7 @@ extern "C" {
         beta: MKL_Complex8,
         C: *mut MKL_Complex8,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8304,7 +8304,7 @@ extern "C" {
         beta: f32,
         C: *mut f32,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8316,7 +8316,7 @@ extern "C" {
         beta: f64,
         C: *mut f64,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8328,7 +8328,7 @@ extern "C" {
         beta: MKL_Complex8,
         C: *mut MKL_Complex8,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
 extern "C" {
@@ -8340,6 +8340,6 @@ extern "C" {
         beta: MKL_Complex16,
         C: *mut MKL_Complex16,
         layout: sparse_layout_t,
-        ldc: ::std::os::raw::c_int,
+        ldc: ::std::os::raw::c_longlong,
     ) -> sparse_status_t;
 }
