@@ -1,23 +1,27 @@
 #[macro_use]
-extern crate bencher;
+extern crate criterion;
+use criterion::Criterion;
+
 extern crate alga;
 extern crate sprs;
 
 use alga::general::{Additive, Inverse};
-use bencher::Bencher;
 use sprs::CsVec;
 
-fn csvec_neg(bench: &mut Bencher) {
-    let vector =
-        CsVec::new(10000, (10..9000).collect::<Vec<_>>(), vec![-1.3; 8990]);
-    bench.iter(|| -vector.clone());
+fn csvec_neg(c: &mut Criterion) {
+    c.bench_function("csvec_neg", |b| {
+        let vector = CsVec::new(10000, (10..9000).collect::<Vec<_>>(), vec![-1.3; 8990]);
+        b.iter(|| -vector.clone())
+    });
 }
 
-fn csvec_additive_inverse(bench: &mut Bencher) {
-    let vector =
-        CsVec::new(10000, (10..9000).collect::<Vec<_>>(), vec![-1.3; 8990]);
-    bench.iter(|| Inverse::<Additive>::inverse(&vector));
+fn csvec_additive_inverse(c: &mut Criterion) {
+    
+    c.bench_function("csvec_additive_inverse", |b| {
+        let vector = CsVec::new(10000, (10..9000).collect::<Vec<_>>(), vec![-1.3; 8990]);
+        b.iter(|| Inverse::<Additive>::inverse(&vector))
+    });
 }
 
-benchmark_group!(benches, csvec_neg, csvec_additive_inverse);
-benchmark_main!(benches);
+criterion_group!(benches, csvec_neg, csvec_additive_inverse);
+criterion_main!(benches);

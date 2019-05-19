@@ -30,9 +30,10 @@ intel-mkl-src = { path = "../rust-intel-mkl" }
 
 
 [dev-dependencies]
-bencher = "0.1"
+criterion = "0.2"
 tempdir = "0.3.5"
 bincode = "1.0.1"
+flate2 = "1"
 
 [[bench]]
 name = "suite"
@@ -41,6 +42,7 @@ harness = false
 [[bench]]
 name = "sparse_dense_products"
 harness = false
+
 
 [workspace]
 members = [

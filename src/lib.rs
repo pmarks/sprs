@@ -59,6 +59,7 @@ assert_eq!(a, b.to_csc());
 */
 
 //#![deny(warnings)]
+#![feature(re_rebalance_coherence)]
 
 extern crate intel_mkl_src;
 

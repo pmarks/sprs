@@ -581,6 +581,37 @@ where
         }
     }
 
+    /// Iterate over the non zero values that fall within the given range of index values
+    /// covered by the half open interval `[start, end)`.
+    /// 
+    /// # Example
+    ///
+    /// ```rust
+    /// use sprs::CsVec;
+    /// let v = CsVec::new(5, vec![0, 2, 4], vec![1., 2., 3.]);
+    /// let mut iter = v.iter_range(4,5);
+    /// assert_eq!(iter.next(), Some((4, &3.)));
+    /// assert_eq!(iter.next(), None);
+    /// ```
+    pub fn iter_range(&self, start: usize, end: usize) -> VectorIterator<N, I> {
+        let start = I::from_usize(start);
+        let end = I::from_usize(end);
+
+        let start_idx = match self.indices.binary_search(&start) {
+            Ok(v) => v,
+            Err(v) => v,
+        };
+
+        let end_idx = start_idx + match self.indices[start_idx..].binary_search(&end) {
+            Ok(v) => v,
+            Err(v) => v,
+        };
+
+        VectorIterator {
+            ind_data: self.indices[start_idx..end_idx].iter().zip(self.data[start_idx..end_idx].iter())
+        }
+    }
+
     /// Permuted iteration. Not finished
     #[doc(hidden)]
     pub fn iter_perm<'a, 'perm: 'a>(
@@ -1334,6 +1365,30 @@ mod test {
         let data = vec![0.5, 2.5, 4.5, 6.5, 7.5];
 
         return CsVecI::new(n, indices, data);
+    }
+
+    #[test]
+    fn test_iter_range() {
+        let vec1 = test_vec1();
+        let full: Vec<_> = vec1.iter().collect();
+
+        let full1: Vec<_> = vec1.iter_range(0,8).collect();
+        assert_eq!(full, full1);
+
+        let full1: Vec<_> = vec1.iter_range(0,9).collect();
+        assert_eq!(full, full1);
+
+        let slice1: Vec<_> = vec1.iter_range(0, 7).collect();
+        assert_eq!(&slice1[..], &full[0..4]);
+
+        let slice1: Vec<_> = vec1.iter_range(0, 6).collect();
+        assert_eq!(&slice1[..], &full[0..4]);
+
+        let slice1: Vec<_> = vec1.iter_range(1, 7).collect();
+        assert_eq!(&slice1[..], &full[1..4]);
+
+        let slice1: Vec<_> = vec1.iter_range(1, 6).collect();
+        assert_eq!(&slice1[..], &full[1..4]);
     }
 
     #[test]

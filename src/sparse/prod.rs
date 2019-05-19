@@ -244,16 +244,6 @@ where
     res
 }
 
-
-use std::any::TypeId;
-
-#[inline(always)]
-/// Return `true` if `A` and `B` are the same type
-fn same_type<A: 'static, B: 'static>() -> bool {
-    TypeId::of::<A>() == TypeId::of::<B>()
-}
-
-
 /// CSR-dense rowmaj multiplication
 ///
 /// Performs better if rhs has a decent number of colums.
@@ -262,8 +252,8 @@ pub fn csr_mulacc_dense_rowmaj<'a, N, I>(
     rhs: ArrayView<N, Ix2>,
     mut out: ArrayViewMut<'a, N, Ix2>,
 ) where
-    N: 'a + Num + Copy + 'static,
-    I: 'a + SpIndex + 'static,
+    N: 'a + Num + Copy,
+    I: 'a + SpIndex,
 {
     if lhs.cols() != rhs.shape()[0] {
         panic!("Dimension mismatch");
@@ -278,87 +268,16 @@ pub fn csr_mulacc_dense_rowmaj<'a, N, I>(
         panic!("Storage mismatch");
     }
 
-    let mkl_success = try_sparse_mulacc_dense_mkl(lhs.clone(), rhs, out.view_mut());
-
-    if !mkl_success {
-        csr_mulacc_dense_rowmaj_impl(lhs, rhs, out);
+    if is_x86_feature_detected!("avx") {
+        if rhs.is_standard_layout() && out.is_standard_layout() {
+            unsafe { csr_mulacc_dense_rowmaj_avx(lhs, rhs, out); }
+            return
+        }
     }
-}
-
-
-
-pub fn try_sparse_mulacc_dense_mkl<'a, N, I>(
-    lhs: CsMatViewI<N, I>,
-    rhs: ArrayView<N, Ix2>,
-    mut out: ArrayViewMut<'a, N, Ix2>,
-) -> bool 
-where
-    N: 'a + Num + Copy + 'static,
-    I: 'a + SpIndex + 'static,
-{
-
-    // attempt to use MKL optimized sparse-dense multiplication routines, where possible.
-    if same_type::<N, f64>() && (same_type::<I, i64>() || same_type::<I, u64>() || same_type::<I, usize>())  {
-        
-        sparse_mulacc_dense_rowmaj_f64_i64_ptrs(
-            lhs.storage,
-            lhs.indptr.as_ptr() as *mut _,
-            lhs.indices.as_ptr() as *mut _,
-            lhs.data.as_ptr() as *mut _,
-            lhs.rows() as i64,
-            lhs.cols() as i64,
-
-            rhs.as_ptr() as *mut _,
-            rhs.shape()[1] as i64,
-
-            out.as_mut_ptr() as *mut _,
-            out.shape()[1] as i64,
-        );
-
-        return true;
-    }
-
-    // attempt to use MKL optimized sparse-dense multiplication routines, where possible.
-    if same_type::<N, f32>() && (same_type::<I, i64>() || same_type::<I, u64>() || same_type::<I, usize>())  {
-        
-        sparse_mulacc_dense_rowmaj_f32_i64_ptrs(
-            lhs.storage,
-            lhs.indptr.as_ptr() as *mut _,
-            lhs.indices.as_ptr() as *mut _,
-            lhs.data.as_ptr() as *mut _,
-            lhs.rows() as i64,
-            lhs.cols() as i64,
-
-            rhs.as_ptr() as *mut _,
-            rhs.shape()[1] as i64,
-
-            out.as_mut_ptr() as *mut _,
-            out.shape()[1] as i64,
-        );
-
-        return true;
-    }
-
-    return false;
-}
-
-
-
-/// CSR-dense rowmaj multiplication
-///
-/// Performs better if rhs has a decent number of colums.
-pub fn csr_mulacc_dense_rowmaj_impl<'a, N, I>(
-    lhs: CsMatViewI<N, I>,
-    rhs: ArrayView<N, Ix2>,
-    mut out: ArrayViewMut<'a, N, Ix2>,
-) where
-    N: 'a + Num + Copy,
-    I: 'a + SpIndex,
-{
 
     let axis0 = Axis(0);
-    for (line, mut oline) in lhs.outer_iterator().zip(out.axis_iter_mut(axis0))
-    {
+
+    for (line, mut oline) in lhs.outer_iterator().zip(out.axis_iter_mut(axis0)) {
         for (col_ind, &lval) in line.iter() {
             let rline = rhs.row(col_ind);
             // TODO: call an axpy primitive to benefit from vectorisation?
@@ -370,292 +289,47 @@ pub fn csr_mulacc_dense_rowmaj_impl<'a, N, I>(
     }
 }
 
-#[allow(unused_imports)]
-use sparse::spblas::{self, 
-    sparse_operation_t, sparse_matrix_t, matrix_descr, 
-    sparse_layout_t, sparse_status_t, 
-    mkl_sparse_d_create_csr, mkl_sparse_d_create_csc,
-    mkl_sparse_s_create_csr, mkl_sparse_s_create_csc, 
-    mkl_sparse_d_mm,
-    mkl_sparse_s_mm};
-
-
-
-#[allow(unused_code)]
-#[allow(unused_imports)]
-/// #[cfg(intel_mkl_src)]
-/// CSR-dense rowmaj multiplication
-///
-/// Performs better if rhs has a decent number of colums.
-pub fn csr_mulacc_dense_rowmaj_f64_i64<'a>(
-    lhs: CsMatViewI<f64, i64>,
-    rhs: ArrayView<f64, Ix2>,
-    mut out: ArrayViewMut<'a, f64, Ix2>,
-)
+#[target_feature(enable = "avx")]
+unsafe fn csr_mulacc_dense_rowmaj_avx<'a, N, I>(
+    lhs: CsMatViewI<N, I>,
+    rhs: ArrayView<N, Ix2>,
+    mut out: ArrayViewMut<'a, N, Ix2>,
+) where
+    N: 'a + Num + Copy,
+    I: 'a + SpIndex,
 {
+    debug_assert!(rhs.is_standard_layout());
+    debug_assert!(out.is_standard_layout());
 
-    let op = spblas::sparse_operation_t_SPARSE_OPERATION_NON_TRANSPOSE;
+    let cache_size = (1 << 18) / std::mem::size_of::<N>();
+    let occ = (lhs.nnz() as f64) / ((lhs.rows() * lhs.cols()) as f64);
 
-    // lhs sparse matrix in mkl internal format
-    let mut lhs_mkl_mat: sparse_matrix_t = std::ptr::null_mut();
+    let inner_block_size = std::cmp::max(64, cache_size / out.shape()[1]);
+    let num_blocks = lhs.cols() / inner_block_size + 1;
 
-    let status = 
-        unsafe {
+    let ocols = out.shape()[1];
+    let rcols = rhs.shape()[1];
 
-            let _row_start = lhs.indptr.as_ptr();
-            let row_start = _row_start as *mut _;
-            let row_end = _row_start.offset(1) as *mut _; 
-            let col_indx = lhs.indices.as_ptr() as *mut _;
-            let values = lhs.data.as_ptr() as *mut _;
+    let rmat = rhs.as_slice().unwrap();
+    let axis0 = Axis(0);
 
-            mkl_sparse_d_create_csr(&mut lhs_mkl_mat as *mut _,
-                                             0,  // indexing is C-style / 0-based
-                                             lhs.rows() as i64,
-                                             lhs.cols() as i64,
-                                             row_start, // rows start
-                                             row_end, // rows end
-                                             col_indx,
-                                             values,
-                                            )
-        };
+    //for chunk in 0 .. num_blocks {
+        for (line, mut oline) in lhs.outer_iterator().zip(out.axis_iter_mut(axis0)) {
+            let oslc = oline.as_slice_mut().unwrap();
 
-    if status != 0 {
-        println!("got error in create csr: {}", status);
-    }
+            //for (col_ind, &lval) in line.iter_range(chunk * inner_block_size, (chunk + 1) * inner_block_size) {
+            for (col_ind, &lval) in line.iter() {
 
-    let descr = matrix_descr {
-        type_: spblas::sparse_matrix_type_t_SPARSE_MATRIX_TYPE_GENERAL,
-        mode: spblas::sparse_fill_mode_t_SPARSE_FILL_MODE_FULL,
-        diag: 0,
-    };
+                let rslc = &rmat[rcols*col_ind..rcols*(col_ind+1)];
 
-    // layout of of dense matrices
-    let layout = spblas::sparse_layout_t_SPARSE_LAYOUT_ROW_MAJOR;
-
-    // Check that rhs is a dense, C-ordered, etc.
-    assert!(rhs.is_standard_layout());
-    assert!(out.is_standard_layout());
-
-
-    // The mkl_sparse_?_mm routine performs a matrix-matrix operation:
-    // y := alpha*op(A)*x + beta*y
-    // where alpha and beta are scalars, A is a sparse matrix, and x and y are dense matrices.
-    // y := alpha*op(A)*x + beta*y
-    // run sparse-dense matrix multiply
-    let status = unsafe { mkl_sparse_d_mm(
-        op,
-        1.0,
-        lhs_mkl_mat,
-        descr,
-        layout,
-        rhs.as_ptr(),  // dense matrix: *const f32,
-        out.shape()[1] as i64, // columns in y / out
-        rhs.shape()[1] as i64, // leading dimension of matrix x, in the in-memory layout
-        1.0,
-        out.as_mut_ptr(),
-        out.shape()[1] as i64, // leading dimension of matrix y, in the in-memory layout
-    ) };
-
-    if status != 0 {
-        println!("got error in create mm: {}", status);
-    }
-
-    // we need to destroy the lhs_mkl_mat wrapper object
-    // note i'm fairly sure this does not the underlying data arrays, which is what we want
-    unsafe { spblas::mkl_sparse_destroy(lhs_mkl_mat); }
+                // this should be vectorized to avx
+                for (o, r) in oslc.iter_mut().zip(rslc) {
+                    *o = *o + lval * *r;
+                }
+            }
+        }
+    //}
 }
-
-
-#[allow(unused_code)]
-#[allow(unused_imports)]
-/// #[cfg(intel_mkl_src)]
-/// CSR-dense rowmaj multiplication
-///
-/// Performs better if rhs has a decent number of colums.
-/// Note rhs and out must be in C-layout with no striding/slicing (arr.is_standard_layout() == true)
-pub fn sparse_mulacc_dense_rowmaj_f64_i64_ptrs(
-    lhs_storage: CompressedStorage,
-    index_ptr: *mut i64,
-    indices: *mut i64,
-    value_ptr: *mut f64,
-    lhs_rows: i64,
-    lhs_cols: i64,
-    rhs_ptr: *mut f64,
-    rhs_cols: i64,
-    out_ptr: *mut f64,
-    out_cols: i64,
-)
-{
-
-    let op = spblas::sparse_operation_t_SPARSE_OPERATION_NON_TRANSPOSE;
-
-    // lhs sparse matrix in mkl internal format
-    let mut lhs_mkl_mat: sparse_matrix_t = std::ptr::null_mut();
-
-    let status = 
-        if lhs_storage == CompressedStorage::CSR {
-            unsafe {
-                mkl_sparse_d_create_csr(&mut lhs_mkl_mat as *mut _,
-                                                0,  // indexing is C-style / 0-based
-                                                lhs_rows,
-                                                lhs_cols,
-                                                index_ptr, // rows start
-                                                index_ptr.offset(1), // rows end
-                                                indices,
-                                                value_ptr,
-                                                )
-            } 
-        } else {
-            unsafe {
-                mkl_sparse_d_create_csc(&mut lhs_mkl_mat as *mut _,
-                                                0,  // indexing is C-style / 0-based
-                                                lhs_rows,
-                                                lhs_cols,
-                                                index_ptr, // col start
-                                                index_ptr.offset(1), // col end
-                                                indices,
-                                                value_ptr,
-                                                )
-            } 
-        };
-
-    if status != 0 {
-        println!("got error in create csr: {}", status);
-    }
-
-    let descr = matrix_descr {
-        type_: spblas::sparse_matrix_type_t_SPARSE_MATRIX_TYPE_GENERAL,
-        mode: spblas::sparse_fill_mode_t_SPARSE_FILL_MODE_FULL,
-        diag: 0,
-    };
-
-    // layout of of dense matrices
-    let layout = spblas::sparse_layout_t_SPARSE_LAYOUT_ROW_MAJOR;
-
-    // The mkl_sparse_?_mm routine performs a matrix-matrix operation:
-    // y := alpha*op(A)*x + beta*y
-    // where alpha and beta are scalars, A is a sparse matrix, and x and y are dense matrices.
-    // y := alpha*op(A)*x + beta*y
-    // run sparse-dense matrix multiply
-    let status = unsafe { mkl_sparse_d_mm(
-        op,
-        1.0,
-        lhs_mkl_mat,
-        descr,
-        layout,
-        rhs_ptr,  // dense matrix: *const f32,
-        out_cols, // columns in y / out
-        rhs_cols, // leading dimension of matrix x, in the in-memory layout
-        1.0,
-        out_ptr,
-        out_cols, // leading dimension of matrix y, in the in-memory layout
-    ) };
-
-    if status != 0 {
-        println!("got error in create mm: {}", status);
-    }
-
-    // we need to destroy the lhs_mkl_mat wrapper object
-    // note i'm fairly sure this does not the underlying data arrays, which is what we want
-    unsafe { spblas::mkl_sparse_destroy(lhs_mkl_mat); }
-}
-
-
-
-#[allow(unused_code)]
-#[allow(unused_imports)]
-/// #[cfg(intel_mkl_src)]
-/// CSR-dense rowmaj multiplication
-///
-/// Performs better if rhs has a decent number of colums.
-/// Note rhs and out must be in C-layout with no striding/slicing (arr.is_standard_layout() == true)
-pub fn sparse_mulacc_dense_rowmaj_f32_i64_ptrs(
-    lhs_storage: CompressedStorage,
-    index_ptr: *mut i64,
-    indices: *mut i64,
-    value_ptr: *mut f32,
-    lhs_rows: i64,
-    lhs_cols: i64,
-    rhs_ptr: *mut f32,
-    rhs_cols: i64,
-    out_ptr: *mut f32,
-    out_cols: i64,
-)
-{
-
-    let op = spblas::sparse_operation_t_SPARSE_OPERATION_NON_TRANSPOSE;
-
-    // lhs sparse matrix in mkl internal format
-    let mut lhs_mkl_mat: sparse_matrix_t = std::ptr::null_mut();
-
-    let status = 
-        if lhs_storage == CompressedStorage::CSR {
-            unsafe {
-                mkl_sparse_s_create_csr(&mut lhs_mkl_mat as *mut _,
-                                                0,  // indexing is C-style / 0-based
-                                                lhs_rows,
-                                                lhs_cols,
-                                                index_ptr, // rows start
-                                                index_ptr.offset(1), // rows end
-                                                indices,
-                                                value_ptr,
-                                                )
-            } 
-        } else {
-            unsafe {
-                mkl_sparse_s_create_csc(&mut lhs_mkl_mat as *mut _,
-                                                0,  // indexing is C-style / 0-based
-                                                lhs_rows,
-                                                lhs_cols,
-                                                index_ptr, // col start
-                                                index_ptr.offset(1), // col end
-                                                indices,
-                                                value_ptr,
-                                                )
-            } 
-        };
-
-    if status != 0 {
-        println!("got error in create csr: {}", status);
-    }
-
-    let descr = matrix_descr {
-        type_: spblas::sparse_matrix_type_t_SPARSE_MATRIX_TYPE_GENERAL,
-        mode: spblas::sparse_fill_mode_t_SPARSE_FILL_MODE_FULL,
-        diag: 0,
-    };
-
-    // layout of of dense matrices
-    let layout = spblas::sparse_layout_t_SPARSE_LAYOUT_ROW_MAJOR;
-
-    // The mkl_sparse_?_mm routine performs a matrix-matrix operation:
-    // y := alpha*op(A)*x + beta*y
-    // where alpha and beta are scalars, A is a sparse matrix, and x and y are dense matrices.
-    // y := alpha*op(A)*x + beta*y
-    // run sparse-dense matrix multiply
-    let status = unsafe { mkl_sparse_s_mm(
-        op,
-        1.0,
-        lhs_mkl_mat,
-        descr,
-        layout,
-        rhs_ptr,  // dense matrix: *const f32,
-        out_cols, // columns in y / out
-        rhs_cols, // leading dimension of matrix x, in the in-memory layout
-        1.0,
-        out_ptr,
-        out_cols, // leading dimension of matrix y, in the in-memory layout
-    ) };
-
-    if status != 0 {
-        println!("got error in create mm: {}", status);
-    }
-
-    // we need to destroy the lhs_mkl_mat wrapper object
-    // note i'm fairly sure this does not the underlying data arrays, which is what we want
-    unsafe { spblas::mkl_sparse_destroy(lhs_mkl_mat); }
-}
-
 
 /// CSC-dense rowmaj multiplication
 ///
@@ -665,8 +339,8 @@ pub fn csc_mulacc_dense_rowmaj<'a, N, I>(
     rhs: ArrayView<N, Ix2>,
     mut out: ArrayViewMut<'a, N, Ix2>,
 ) where
-    N: 'a + Num + Copy + 'static,
-    I: 'a + SpIndex + 'static ,
+    N: 'a + Num + Copy,
+    I: 'a + SpIndex,
 {
     if lhs.cols() != rhs.shape()[0] {
         panic!("Dimension mismatch");
@@ -681,21 +355,6 @@ pub fn csc_mulacc_dense_rowmaj<'a, N, I>(
         panic!("Storage mismatch");
     }
 
-    let mkl_success = try_sparse_mulacc_dense_mkl(lhs.clone(), rhs, out.view_mut());
-
-    if !mkl_success {
-        csc_mulacc_dense_rowmaj_impl(lhs, rhs, out);
-    }
-}
-
-pub fn csc_mulacc_dense_rowmaj_impl<'a, N, I>(
-    lhs: CsMatViewI<N, I>,
-    rhs: ArrayView<N, Ix2>,
-    mut out: ArrayViewMut<'a, N, Ix2>,
-) where
-    N: 'a + Num + Copy,
-    I: 'a + SpIndex,
-{
     for (lcol, rline) in lhs.outer_iterator().zip(rhs.outer_iter()) {
         for (orow, &lval) in lcol.iter() {
             let mut oline = out.row_mut(orow);
@@ -710,12 +369,15 @@ pub fn csc_mulacc_dense_rowmaj_impl<'a, N, I>(
 /// CSC-dense colmaj multiplication
 ///
 /// Performs better if rhs has few columns.
-pub fn csc_mulacc_dense_colmaj<'a, N, I>(
-    lhs: CsMatViewI<N, I>,
-    rhs: ArrayView<N, Ix2>,
-    mut out: ArrayViewMut<'a, N, Ix2>,
+pub fn csc_mulacc_dense_colmaj<'a, N1, N2, NOut, I>(
+    lhs: CsMatViewI<N1, I>,
+    rhs: ArrayView<N2, Ix2>,
+    mut out: ArrayViewMut<'a, NOut, Ix2>,
 ) where
-    N: 'a + Num + Copy,
+    N1: 'a + Num + Copy,
+    N2: 'a + Num + Copy,
+    NOut: 'a + Num + Copy,
+    N1: std::ops::Mul<N2, Output = NOut>,
     I: 'a + SpIndex,
 {
     if lhs.cols() != rhs.shape()[0] {
@@ -746,12 +408,15 @@ pub fn csc_mulacc_dense_colmaj<'a, N, I>(
 /// CSR-dense colmaj multiplication
 ///
 /// Performs better if rhs has few columns.
-pub fn csr_mulacc_dense_colmaj<'a, N, I>(
-    lhs: CsMatViewI<N, I>,
-    rhs: ArrayView<N, Ix2>,
-    mut out: ArrayViewMut<'a, N, Ix2>,
+pub fn csr_mulacc_dense_colmaj<'a, N1, N2, NOut, I>(
+    lhs: CsMatViewI<N1, I>,
+    rhs: ArrayView<N2, Ix2>,
+    mut out: ArrayViewMut<'a, NOut, Ix2>,
 ) where
-    N: 'a + Num + Copy,
+    N1: 'a + Num + Copy,
+    N2: 'a + Num + Copy,
+    NOut: 'a + Num + Copy,
+    N1: std::ops::Mul<N2, Output = NOut>,
     I: 'a + SpIndex,
 {
     if lhs.cols() != rhs.shape()[0] {
@@ -782,7 +447,8 @@ pub fn csr_mulacc_dense_colmaj<'a, N, I>(
 #[cfg(test)]
 mod test {
     use super::*;
-    use ndarray::{s, arr2, Array, ShapeBuilder};
+    use ndarray::{s, arr2, Array, Array2, Dimension, ShapeBuilder};
+    use ndarray::linalg::Dot;
     use sparse::csmat::CompressedStorage::{CSC, CSR};
     use sparse::{CsMat, CsMatView, CsVec};
     use test_data::*;
@@ -942,7 +608,7 @@ mod test {
 
     #[test]
     fn mul_csr_dense_rowmaj() {
-        let a = Array::eye(3);
+        let a: Array2<f64> = Array::eye(3);
         let e: CsMat<f64> = CsMat::eye(3);
         let mut res = Array::zeros((3, 3));
         super::csr_mulacc_dense_rowmaj(e.view(), a.view(), res.view_mut());
@@ -1046,5 +712,94 @@ mod test {
 
         let c = &a * &b;
         assert_eq!(c, expected_output);
+    }
+
+    // stolen from ndarray - not currently exported.
+    fn assert_close<D>(a: ArrayView<f64, D>, b: ArrayView<f64, D>)
+    where
+        D: Dimension,
+    {
+        let diff = (&a - &b).mapv_into(f64::abs);
+
+        let rtol = 1e-7;
+        let atol = 1e-12;
+        let crtol = b.mapv(|x| x.abs() * rtol);
+        let tol = crtol + atol;
+        let tol_m_diff = &diff - &tol;
+        let maxdiff = tol_m_diff.fold(0. / 0., |x, y| f64::max(x, *y));
+        println!("diff offset from tolerance level= {:.2e}", maxdiff);
+        if maxdiff > 0. {
+            println!("{:.4?}", a);
+            println!("{:.4?}", b);
+            panic!("results differ");
+        }
+    }
+
+    #[test]
+    fn test_sparse_dot_dense() {
+        let sparse = [
+            mat1(),
+            mat1_csc(),
+            mat2(),
+            mat2().transpose_into(),
+            mat4(),
+            mat5(),
+        ];
+        let dense = [
+            mat_dense1(),
+            mat_dense1_colmaj(),
+            mat_dense1().reversed_axes(),
+            mat_dense2(),
+            mat_dense2().reversed_axes(),
+        ];
+
+        // test sparse.dot(dense)
+        for s in sparse.iter() {
+            for d in dense.iter() {
+                if d.shape()[0] < s.cols() {
+                    continue;
+                }
+
+                let d = d.slice(s![0..s.cols(), ..]);
+
+                let truth = s.to_dense().dot(&d);
+                let test = s.dot(&d);
+                assert_close(test.view(), truth.view());
+            }
+        }
+    }
+
+    #[test]
+    fn test_dense_dot_sparse() {
+        let sparse = [
+            mat1(),
+            mat1_csc(),
+            mat2(),
+            mat2().transpose_into(),
+            mat4(),
+            mat5(),
+        ];
+        let dense = [
+            mat_dense1(),
+            mat_dense1_colmaj(),
+            mat_dense1().reversed_axes(),
+            mat_dense2(),
+            mat_dense2().reversed_axes(),
+        ];
+
+        // test sparse.ldot(dense)
+        for s in sparse.iter() {
+            for d in dense.iter() {
+                if d.shape()[1] < s.rows() {
+                    continue;
+                }
+
+                let d = d.slice(s![.., 0..s.rows()]);
+
+                let truth = d.dot(&s.to_dense());
+                let test = d.dot(s);
+                assert_close(test.view(), truth.view());
+            }
+        }
     }
 }
