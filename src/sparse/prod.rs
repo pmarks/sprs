@@ -346,15 +346,12 @@ unsafe fn csr_mulacc_dense_rowmaj_avx<'a, N, I>(
 /// CSC-dense rowmaj multiplication
 ///
 /// Performs better if rhs has a decent number of colums.
-pub fn csc_mulacc_dense_rowmaj<'a, N1, N2, NOut, I>(
-    lhs: CsMatViewI<N1, I>,
-    rhs: ArrayView<N2, Ix2>,
-    mut out: ArrayViewMut<'a, NOut, Ix2>,
+pub fn csc_mulacc_dense_rowmaj<'a, N, I>(
+    lhs: CsMatViewI<N, I>,
+    rhs: ArrayView<N, Ix2>,
+    mut out: ArrayViewMut<'a, N, Ix2>,
 ) where
-    N1: 'a + Num + Copy,
-    N2: 'a + Num + Copy,
-    NOut: 'a + Num + Copy,
-    N1: std::ops::Mul<N2, Output = NOut>,
+    N: 'a + Num + Copy,
     I: 'a + SpIndex,
 {
     if lhs.cols() != rhs.shape()[0] {

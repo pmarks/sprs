@@ -612,6 +612,49 @@ where
         }
     }
 
+    /// Iterate over the non zero values that fall within the given range of index values
+    /// covered by the half open interval `[start, end)`.
+    /// 
+    /// # Example
+    ///
+    /// ```rust
+    /// use sprs::CsVec;
+    /// let v = CsVec::new(5, vec![0, 2, 4], vec![1., 2., 3.]);
+    /// let mut iter = v.iter_range(4,5);
+    /// assert_eq!(iter.next(), Some((4, &3.)));
+    /// assert_eq!(iter.next(), None);
+    /// ```
+    pub fn iter_range(&self, start: usize, end: usize) -> VectorIterator<N, I> {
+        let start = I::from_usize(start);
+        let end = I::from_usize(end);
+
+        let start_idx = match self.indices.binary_search(&start) {
+            Ok(v) => v,
+            Err(v) => v,
+        };
+
+        let end_idx = start_idx + match self.indices[start_idx..].binary_search(&end) {
+            Ok(v) => v,
+            Err(v) => v,
+        };
+
+        VectorIterator {
+            ind_data: self.indices[start_idx..end_idx].iter().zip(self.data[start_idx..end_idx].iter())
+        }
+    }
+
+    pub(crate) fn get_chunk_iter<'a>(&'a self, nnz_pos: usize, chunk_size: usize, chunk_idx: usize) -> EndIter<'a, N, I> {
+        EndIter {
+            indices: &self.indices,
+            values: &self.data,
+            nnz_pos: nnz_pos,
+            end: chunk_size * (chunk_idx + 1),
+            current_chunk: chunk_idx,
+            chunk_size: chunk_size
+        }
+    }
+
+    /// Permuted iteration. Not finished
     #[doc(hidden)]
     pub fn iter_perm<'a, 'perm: 'a>(
         &'a self,
