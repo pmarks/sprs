@@ -59,7 +59,7 @@ assert_eq!(a, b.to_csc());
 */
 
 #![feature(re_rebalance_coherence)]
-#![deny(warnings)]
+//#![deny(warnings)]
 
 #[cfg(feature = "alga")]
 extern crate alga;
