@@ -7,6 +7,8 @@ use sparse::prelude::*;
 use std::iter::Sum;
 use Ix2;
 
+use std::time::{Instant};
+
 /// Compute the dot product of two sparse vectors, using binary search to find matching indices.
 ///
 /// Runs in O(MlogN) time, where M and N are the number of non-zero entries in each vector.
@@ -257,6 +259,7 @@ pub fn csr_mulacc_dense_rowmaj<'a, N1, N2, NOut, I>(
     N1: std::ops::Mul<N2, Output = NOut>,
     I: 'a + SpIndex,
 {
+    let i = Instant::now();
     if lhs.cols() != rhs.shape()[0] {
         panic!("Dimension mismatch");
     }
@@ -282,6 +285,62 @@ pub fn csr_mulacc_dense_rowmaj<'a, N1, N2, NOut, I>(
             }
         }
     }
+
+    println!("csr-rm ({} x {}) * ({} x {})  in {}ms", lhs.rows(), lhs.cols(), rhs.shape()[0], rhs.shape()[1], i.elapsed().as_millis());
+}
+
+#[target_feature(enable = "avx")]
+unsafe fn csr_mulacc_dense_rowmaj_avx<'a, N, I>(
+    lhs: CsMatViewI<N, I>,
+    rhs: ArrayView<N, Ix2>,
+    mut out: ArrayViewMut<'a, N, Ix2>,
+) where
+    N: 'a + Num + Copy,
+    I: 'a + SpIndex,
+{
+    let i = Instant::now();
+    debug_assert!(rhs.is_standard_layout());
+    debug_assert!(out.is_standard_layout());
+
+    let cache_size = (1 << 17) / std::mem::size_of::<N>();
+    let occ = (lhs.nnz() as f64) / ((lhs.rows() * lhs.cols()) as f64);
+
+    let inner_block_size = std::cmp::max(64, cache_size / out.shape()[1]);
+    let num_blocks = lhs.cols() / inner_block_size + 1;
+
+    let ocols = out.shape()[1];
+    let rcols = rhs.shape()[1];
+
+    let rmat = rhs.as_slice().unwrap();
+    let axis0 = Axis(0);
+
+    let mut row_iter_nnz: Vec<usize> = vec![0; lhs.rows()];
+
+    for chunk in 0 .. num_blocks {
+        for (lidx, (line, mut oline)) in lhs.outer_iterator().zip(out.axis_iter_mut(axis0)).enumerate() {
+            let oslc = oline.as_slice_mut().unwrap();
+
+
+            let mut cur_nnz = row_iter_nnz[lidx];
+            let line_iter = line.get_chunk_iter(cur_nnz, inner_block_size, chunk);
+
+            for (col_ind, &lval, nnz) in line_iter {
+            //for (col_ind, &lval) in line.iter() {
+
+                let rslc = &rmat[rcols*col_ind..rcols*(col_ind+1)];
+
+                // this should be vectorized to avx
+                for (o, r) in oslc.iter_mut().zip(rslc) {
+                    *o = *o + lval * *r;
+                }
+
+                cur_nnz = nnz;
+            }
+
+            row_iter_nnz[lidx] = cur_nnz;
+        }
+    }
+    println!("csr-avx ({} x {}) * ({} x {})  in {}ms", lhs.rows(), lhs.cols(), rhs.shape()[0], rhs.shape()[1], i.elapsed().as_millis());
 }
 
 /// CSC-dense rowmaj multiplication
@@ -311,6 +370,15 @@ pub fn csc_mulacc_dense_rowmaj<'a, N1, N2, NOut, I>(
         panic!("Storage mismatch");
     }
 
+    if is_x86_feature_detected!("avx") {
+        if rhs.is_standard_layout() && out.is_standard_layout() {
+            unsafe { csc_mulacc_dense_rowmaj_avx(lhs, rhs, out); }
+            return
+        }
+    }
+
+    let i = Instant::now();
+
     for (lcol, rline) in lhs.outer_iterator().zip(rhs.outer_iter()) {
         for (orow, &lval) in lcol.iter() {
             let mut oline = out.row_mut(orow);
@@ -320,7 +388,44 @@ pub fn csc_mulacc_dense_rowmaj<'a, N1, N2, NOut, I>(
             }
         }
     }
+
+    println!("csc-rm ({} x {}) * ({} x {})  in {}ms", lhs.rows(), lhs.cols(), rhs.shape()[0], rhs.shape()[1], i.elapsed().as_millis());
 }
+
+/// CSC-dense rowmaj multiplication
+///
+/// Performs better if rhs has a decent number of colums.
+unsafe fn csc_mulacc_dense_rowmaj_avx<'a, N, I>(
+    lhs: CsMatViewI<N, I>,
+    rhs: ArrayView<N, Ix2>,
+    mut out: ArrayViewMut<'a, N, Ix2>,
+) where
+    N: 'a + Num + Copy,
+    I: 'a + SpIndex,
+{
+
+    let i = Instant::now();
+
+    let ocols = out.shape()[1];
+    let omat = out.as_slice_mut().unwrap();
+
+    for (lcol, rline) in lhs.outer_iterator().zip(rhs.outer_iter()) {
+        let rslc = rline.as_slice().unwrap();
+
+        for (orow, &lval) in lcol.iter() {
+            //let mut oline = out.row_mut(orow);
+            let oslc = &mut omat[orow*ocols .. (orow+1)*ocols];
+
+            for (o, r) in oslc.iter_mut().zip(rslc) {
+                *o = *o + lval * *r;
+            }
+        }
+    }
+
+
+    println!("csc-avx ({} x {}) * ({} x {})  in {}ms", lhs.rows(), lhs.cols(), rhs.shape()[0], rhs.shape()[1], i.elapsed().as_millis());
+}
+
 
 /// CSC-dense colmaj multiplication
 ///
@@ -349,6 +454,8 @@ pub fn csc_mulacc_dense_colmaj<'a, N1, N2, NOut, I>(
         panic!("Storage mismatch");
     }
 
+    let i = Instant::now();
+
     let axis1 = Axis(1);
     for (mut ocol, rcol) in out.axis_iter_mut(axis1).zip(rhs.axis_iter(axis1)) {
         for (rrow, lcol) in lhs.outer_iterator().enumerate() {
@@ -359,6 +466,8 @@ pub fn csc_mulacc_dense_colmaj<'a, N1, N2, NOut, I>(
             }
         }
     }
+
+    println!("csc-cm ({} x {}) * ({} x {})  in {}ms", lhs.rows(), lhs.cols(), rhs.shape()[0], rhs.shape()[1], i.elapsed().as_millis());
 }
 
 /// CSR-dense colmaj multiplication

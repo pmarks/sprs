@@ -66,6 +66,37 @@ where
     }
 }
 
+#[derive(Clone)]
+pub struct EndIter<'a, N: 'a, I: 'a> {
+    indices: &'a [I],
+    values: &'a [N],
+    pub(crate) nnz_pos: usize,
+    end: usize,
+    chunk_size: usize,
+    current_chunk: usize,
+}
+
+impl<'a, N: 'a, I: 'a + SpIndex> Iterator for EndIter<'a, N, I> {
+    type Item = (usize, &'a N, usize);
+
+    fn next(&mut self) -> Option<<Self as Iterator>::Item> {
+        if self.nnz_pos >= self.indices.len() {
+            return None;
+        }
+        
+        let index = self.indices[self.nnz_pos].index();
+        
+        if index >= self.end {
+            None
+        } else {
+            let val = &self.values[self.nnz_pos];
+            let result = (index, val, self.nnz_pos);
+            self.nnz_pos += 1;
+            Some(result)
+        }
+    }
+}
+
 /// An iterator over the non-zero elements of a sparse vector
 pub struct VectorIterator<'a, N: 'a, I: 'a> {
     ind_data: Zip<Iter<'a, I>, Iter<'a, N>>,
@@ -581,7 +612,6 @@ where
         }
     }
 
-    /// Permuted iteration. Not finished
     #[doc(hidden)]
     pub fn iter_perm<'a, 'perm: 'a>(
         &'a self,
@@ -1335,6 +1365,55 @@ mod test {
 
         return CsVecI::new(n, indices, data);
     }
+
+    #[test]
+    fn test_iter_range() {
+        let vec1 = test_vec1();
+        let full: Vec<_> = vec1.iter().collect();
+
+        let full1: Vec<_> = vec1.iter_range(0,8).collect();
+        assert_eq!(full, full1);
+
+        let full1: Vec<_> = vec1.iter_range(0,9).collect();
+        assert_eq!(full, full1);
+
+        let slice1: Vec<_> = vec1.iter_range(0, 7).collect();
+        assert_eq!(&slice1[..], &full[0..4]);
+
+        let slice1: Vec<_> = vec1.iter_range(0, 6).collect();
+        assert_eq!(&slice1[..], &full[0..4]);
+
+        let slice1: Vec<_> = vec1.iter_range(1, 7).collect();
+        assert_eq!(&slice1[..], &full[1..4]);
+
+        let slice1: Vec<_> = vec1.iter_range(1, 6).collect();
+        assert_eq!(&slice1[..], &full[1..4]);
+    }
+
+    #[test]
+    fn test_iter_chunk() {
+        let vec1 = test_vec1();
+        let full: Vec<_> = vec1.iter().collect();
+
+        let first2 = |(a,b,c)| (a,b);
+
+        let full1: Vec<_> = vec1.get_chunk_iter(0, 100, 0).map(first2).collect();
+        assert_eq!(full, full1);
+
+        let slice1: Vec<_> = vec1.get_chunk_iter(0, 7, 0).map(first2).collect();
+        assert_eq!(&slice1[..], &full[0..4]);
+
+        let slice1: Vec<_> = vec1.get_chunk_iter(0, 6, 0).map(first2).collect();
+        assert_eq!(&slice1[..], &full[0..4]);
+
+        let slice1: Vec<_> = vec1.get_chunk_iter(1, 10, 0).map(first2).collect();
+        assert_eq!(&slice1[..], &full[1..]);
+
+        let slice1: Vec<_> = vec1.get_chunk_iter(2, 10, 1).map(first2).collect();
+        assert_eq!(&slice1[..], &full[2..]);
+    }
+
+
 
     #[test]
     fn test_nnz_zip_iter() {
